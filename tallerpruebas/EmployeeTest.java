@@ -58,5 +58,27 @@ public class EmployeeTest{
         //mes impar
         else{assertEquals(734.33, salario, 0.5f);}
 	}
+	
+	
+	
+	//Caso de prueba 2: calculo del bono de fin de año
+	
+	@Test
+	//Prueba 3: divisa USD a manager 
+	public void evaluateCalcularBonoUSDManager() {
+		Employee employee = new Employee(600.0f, "USD", 100f, EmployeeType.Manager);
+		float salario = employee.CalculateYearBonus();
+		assertEquals(986.0f, salario, 0.5f);
+
+	}
+
+	@Test
+	//Prueba 4: aplica descuento por cambio de moneda a worker
+	public void evaluateCalcularConDescuentoWorker() {
+		Employee employee = new Employee(600.0f, "EU", 100f, EmployeeType.Worker);
+		float salario = employee.CalculateYearBonus();
+		assertEquals(386.0f, salario, 0.5f);
+	}
+	
 
 }
