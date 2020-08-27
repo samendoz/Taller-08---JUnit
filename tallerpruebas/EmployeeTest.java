@@ -131,5 +131,20 @@ public class EmployeeTest{
 		assertEquals(386.0f, salario, 0.5f);
 	}
 	
+	//Prueba 5: Calcula el bono de fin de año de un supervisor
+	@Test
+	public void evaluateCalcularYearBonusSupervisor() {
+		Employee employee = new Employee(750.0f, "noUSD", 100f, EmployeeType.Supervisor);
+		float salario=employee.CalculateYearBonus();
+		assertEquals(905.5f,salario,0.5f);
+	}
+	
+	//Prueba 6: Calcula el bono de fin de año de un Manager
+		@Test
+		public void evaluateCalcularYearBonusManager() {
+			Employee employee = new Employee(850.0f, "noUSD", 100f, EmployeeType.Manager);
+			float salario=employee.CalculateYearBonus();
+			assertEquals(1193.5f,salario,0.5f);
+		}
 
 }
