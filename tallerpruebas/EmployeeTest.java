@@ -112,10 +112,26 @@ public class EmployeeTest{
 	
 	
 	
-	//Caso de prueba 2: calculo del bono de fin de año
+	//Caso de prueba 2: Calculo del bono de fin de año
 	
 	@Test
-	//Prueba 3: divisa USD a manager 
+	//Prueba 1: Divisa USD a Worker
+	public void evaluateCalcularBonoUSDWorker() {
+		Employee employee = new Employee(650.0f, "USD", 100f, EmployeeType.Worker);
+		float salario = employee.CalculateYearBonus();
+		assertEquals(500.0f, salario, 0.5f);
+	}
+	
+	@Test
+	//Prueba 2: Divisa USD a Supervisor
+	public void evaluateCalcularBonoUSDSupervisor() {
+		Employee employee = new Employee(650.0f, "USD", 100f, EmployeeType.Supervisor);
+		float salario = employee.CalculateYearBonus();
+		assertEquals(450.0f, salario, 0.5f);
+	}
+	
+	@Test
+	//Prueba 3: Divisa USD a Manager 
 	public void evaluateCalcularBonoUSDManager() {
 		Employee employee = new Employee(600.0f, "USD", 100f, EmployeeType.Manager);
 		float salario = employee.CalculateYearBonus();
@@ -124,7 +140,7 @@ public class EmployeeTest{
 	}
 
 	@Test
-	//Prueba 4: aplica descuento por cambio de moneda a worker
+	//Prueba 4: Aplica descuento por cambio de moneda a worker
 	public void evaluateCalcularConDescuentoWorker() {
 		Employee employee = new Employee(600.0f, "EU", 100f, EmployeeType.Worker);
 		float salario = employee.CalculateYearBonus();
